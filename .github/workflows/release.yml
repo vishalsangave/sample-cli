@@ -2,12 +2,10 @@
 name: "Bump Version"
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: Bump Version
-        default: v1.0.0
-        required: true
+  push:
+    branches:
+      - main
+      - "beta"
 
 jobs:
   bump-version:
@@ -34,3 +32,17 @@ jobs:
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: echo "new tag $NEW_TAG"
+  
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
