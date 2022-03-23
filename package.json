@@ -1,5 +1,5 @@
 {
-  "name": "sample-cli",
+  "name": "@vishalsangave/sample-cli",
   "description": "Sample code to test working of oclif",
   "version": "0.0.0",
   "author": "Vishal Sangave @vishalsangave",
@@ -43,7 +43,6 @@
     "bin": "sample"
   },
   "release": {
-    "branches": ["main", "beta"],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
