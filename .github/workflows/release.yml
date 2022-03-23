@@ -2,13 +2,12 @@
 name: "Bump Version"
 
 on:
-  on:
-    workflow_dispatch:
-      inputs:
-        version:
-          description: Bump Version
-          default: v1.0.0
-          required: true
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Bump Version
+        default: v1.0.0
+        required: true
 
 jobs:
   bump-version:
