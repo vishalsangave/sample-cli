@@ -1,7 +1,7 @@
 {
   "name": "@vishalsangave/sample-cli",
   "description": "Sample code to test working of oclif",
-  "version": "1.0.1-beta.2",
+  "version": "1.0.1-beta.3",
   "author": "Vishal Sangave @vishalsangave",
   "bin": {
     "sample": "./bin/run"
@@ -42,11 +42,9 @@
   "oclif": {
     "bin": "sample"
   },
-
   "publishConfig": {
     "access": "public"
   },
-  
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
