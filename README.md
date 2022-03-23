@@ -19,7 +19,7 @@ $ npm install -g sample-cli
 $ sample COMMAND
 running command...
 $ sample (-v|--version|version)
-sample-cli/0.0.0 darwin-x64 node-v16.12.0
+sample-cli/1.0.0 linux-x64 node-v16.14.0
 $ sample --help [COMMAND]
 USAGE
   $ sample COMMAND
