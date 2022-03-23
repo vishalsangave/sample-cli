@@ -27,21 +27,20 @@ jobs:
         with:
           node-version: "16.x"
           semantic_version: 16
-          branches: |    
-        [
-          'main', 
-          'next', 
-          'next-major', 
-          {
-            name: 'beta', 
-            prerelease: true
-          }, 
-          {
-            name: 'alpha', 
-            prerelease: true
-          }
-        ]
-
+          branches: |
+              [
+                'main', 
+                'next', 
+                'next-major', 
+                {
+                  name: 'beta', 
+                  prerelease: true
+                }, 
+                {
+                  name: 'alpha', 
+                  prerelease: true
+                }
+              ]
       - run: npm install
       - run: npm run build --if-present
       - run: npm test
