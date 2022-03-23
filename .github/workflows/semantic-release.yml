@@ -2,9 +2,13 @@ name: Semantic Release
 
 on:
   push:
-    branches:
-      - main
-      - {name: 'beta', prerelease: true}
+    branches: [
+      "main",
+      {
+        name: "beta", 
+        prerelease: true
+      }
+    ]
 
 jobs:
   build:
