@@ -19,7 +19,7 @@ $ npm install -g @vishalsangave/sample-cli
 $ sample COMMAND
 running command...
 $ sample (-v|--version|version)
-@vishalsangave/sample-cli/1.0.1-beta.1 linux-x64 node-v16.14.0
+@vishalsangave/sample-cli/1.0.1-beta.2 linux-x64 node-v16.14.0
 $ sample --help [COMMAND]
 USAGE
   $ sample COMMAND
