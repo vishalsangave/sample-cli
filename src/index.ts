@@ -21,7 +21,7 @@ class SampleCli extends Command {
     const name = flags.name ?? 'world'
     this.log(`hello ${name} from ./src/index.ts`)
     if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
+      this.log(`you test input --force and --file: ${args.file}`)
     }
   }
 }
