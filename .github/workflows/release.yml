@@ -18,7 +18,6 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: "cat package.json"
-        run: cat ./package.json
         run: npm install
       - name: "Automated Version Bump"
         id: version-bump
