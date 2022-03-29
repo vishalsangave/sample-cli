@@ -10,6 +10,8 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1.26.10",
     "@oclif/test": "^1.2.9",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.1",
     "@types/chai": "^4.3.0",
     "@types/mocha": "^5.2.7",
@@ -22,9 +24,7 @@
     "nyc": "^14.1.1",
     "semantic-release": "^19.0.0",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.10",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/changelog": "^6.0.1"
+    "typescript": "^3.9.10"
   },
   "engines": {
     "node": ">=8.0.0"
