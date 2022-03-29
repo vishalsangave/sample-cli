@@ -1,0 +1,64 @@
+name: Semantic Release
+
+on:
+  push:
+    branches: [
+      "main",
+      "beta"
+    ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm install
+      - run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: | 
+          npm install
+          npm run build --if-present
+          npm test
+      - name: Create Release Tag
+        uses: cycjimmy/semantic-release-action@v3
+        id: semantic
+        with:
+          semantic_version: 16
+          branches: |
+              [
+                'main', 
+                'next', 
+                'next-major', 
+                {
+                  name: 'beta', 
+                  prerelease: true
+                }, 
+                {
+                  name: 'alpha', 
+                  prerelease: true
+                }
+              ]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - run: npx semantic-release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create a GitHub release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.semantic.outputs.new_release_version }}
+          release_name: Release ${{ steps.semantic.outputs.new_release_version }}
+          # body: ${{steps.semantic.outputs.changelog}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
