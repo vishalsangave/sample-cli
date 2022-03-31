@@ -31,7 +31,6 @@ jobs:
                 name: 'beta',
                 prerelease: true
               },
-              
             ]
           extra_plugins: |
             @semantic-release/git
@@ -40,12 +39,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # - name: Create a GitHub release
-      #   uses: actions/create-release@v1
-      #   with:
-      #     tag_name: ${{ steps.semantic.outputs.new_release_version }}
-      #     release_name: Release ${{ steps.semantic.outputs.new_release_version }}
-      #     # body: ${{steps.semantic.outputs.changelog}}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
