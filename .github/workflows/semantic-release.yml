@@ -35,15 +35,8 @@ jobs:
             ]
           extra_plugins: |
             @semantic-release/git
-            @semantic-release/
-            '@semantic-release/github',
-              [
-                '@semantic-release/git',
-                {
-                  assets: ['CHANGELOG.md', 'README.md'],
-                  message: 'chore(release): set `package.json` to ${nextRelease.version} [skip ci]',
-                },
-              ]
+            @semantic-release/changelog
+            @semantic-release/github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
